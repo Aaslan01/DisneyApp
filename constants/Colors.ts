@@ -5,7 +5,8 @@ const light = "#CACACA";
 const darkBlue = "#022658";
 const blue = "#0061A6";
 
-export default {
+const StyleGuide = {
+  colors: {
   darkText: dark,
   text: light,
   background: dark,
@@ -20,4 +21,8 @@ export default {
   dark,
   darkBlue,
   blue,
+  }
 };
+
+
+export default StyleGuide
