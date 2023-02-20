@@ -11,7 +11,7 @@ import {
 
 export default function HomeScreen() {
   return (
-    <ScrollView style={{ backgroundColor: StyleGuide.colors.dark, flex: 1, paddingHorizontal: 10 }}>
+    <ScrollView style={{ backgroundColor: StyleGuide.colors.dark, flex: 1, paddingHorizontal: 16 }}>
       <Image
         style={{ width: 100, height: 50, alignSelf: 'center' }}
         source={require("../assets/images/logo.png")}
@@ -22,7 +22,7 @@ export default function HomeScreen() {
         snapToInterval={wp(90)}
         pagingEnabled
         decelerationRate={'fast'}
-        contentContainerStyle={{ padding: 10 }}
+        contentContainerStyle={{ paddingVertical: 10 }}
       >
         {
           trendingMovies.map((movies) => (
@@ -46,16 +46,20 @@ export default function HomeScreen() {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ paddingHorizontal: 10 }}
+        // contentContainerStyle={{ 
+        //   backgroundColor: StyleGuide.colors.darkBlue,
+        // }}
       >
         {
           studios.map((movies) => (
             <TouchableOpacity
               key={movies.id}
               style={{
-                width: wp(20),
+                width: wp(16),
                 height: hp(6),
                 borderRadius: 10,
+                marginHorizontal:4,
+                backgroundColor: StyleGuide.colors.darkBlue,
               }}
             >
               <Image
