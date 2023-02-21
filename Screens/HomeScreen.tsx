@@ -1,13 +1,14 @@
 import { View, Text, Image, TouchableOpacity, SafeAreaView, } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import StyleGuide from '../constants/Colors';
+import StyleGuide from '../constants/StyleGuide';
 import { ScrollView } from 'react-native-gesture-handler';
-import { trendingMovies, studios } from '../data';
+import { trendingMovies, studios, movies } from '../data';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen'
+import MoviesList from '../components/MoviesList';
 
 export default function HomeScreen() {
   return (
@@ -46,9 +47,9 @@ export default function HomeScreen() {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        // contentContainerStyle={{ 
-        //   backgroundColor: StyleGuide.colors.darkBlue,
-        // }}
+      // contentContainerStyle={{ 
+      //   backgroundColor: StyleGuide.colors.darkBlue,
+      // }}
       >
         {
           studios.map((movies) => (
@@ -58,7 +59,7 @@ export default function HomeScreen() {
                 width: wp(16),
                 height: hp(6),
                 borderRadius: 10,
-                marginHorizontal:4,
+                marginHorizontal: 4,
                 backgroundColor: StyleGuide.colors.darkBlue,
               }}
             >
@@ -67,15 +68,21 @@ export default function HomeScreen() {
                   width: "100%",
                   height: "100%",
                   borderRadius: 10,
-                  overflow: 'hidden',
-                  resizeMode: 'contain'
+                  resizeMode: 'cover'
                 }}
                 source={movies.image} />
             </TouchableOpacity>
           ))
         }
       </ScrollView>
-
+      <MoviesList 
+      movies={movies.slice(0,4)}
+      title='Recommendation for You'
+      />
+       <MoviesList 
+      title='Originals'
+      movies={movies.slice(5,9)}
+      />
     </ScrollView>
   )
 }

@@ -1,3 +1,6 @@
+
+import Font
+ from "./Font";
 const white = "#F9F9F9";
 const black = "#0C0E18";
 const dark = "#36394b";
@@ -21,7 +24,19 @@ const StyleGuide = {
   dark,
   darkBlue,
   blue,
-  }
+  },
+  boldText: {
+    color: light,
+    fontFamily: 'Poppins-Bold',
+  },
+  semiText: {
+    color: light,
+    fontFamily: 'Poppins-SemiBold',
+  },
+  regularText: {
+    color: light,
+    fontFamily: 'Poppins-Regular',
+  },
 };
 
 
