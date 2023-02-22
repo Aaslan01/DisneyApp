@@ -29,6 +29,7 @@ const StyleGuide = {
     fontFamily: 'Poppins-Bold',
   },
   semiText: {
+    fontSize: 12,
     color: light,
     fontFamily: 'Poppins-SemiBold',
   },

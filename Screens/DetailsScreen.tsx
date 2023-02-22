@@ -9,6 +9,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import StyleGuide from '../constants/StyleGuide';
 import Dot from '../components/Dot';
+import FontSize from '../constants/FontSize';
 
 const DetailsScreen = () => {
   const params = useRoute().params as any;
@@ -37,12 +38,13 @@ const DetailsScreen = () => {
         }}>
         <Image source={icons.cross} />
       </TouchableOpacity>
-      <Image
-        resizeMode="contain"
-        style={{width: wp(60), height: hp(20)}}
-        source={params.movie.logo}
-      />
       <View style={{paddingHorizontal: wp(4)}}>
+        <Image
+          resizeMode="contain"
+          style={{width: wp(60), height: hp(22)}}
+          source={params.movie.logo}
+        />
+        {/* movie option */}
         <View style={StyleGuide.frac}>
           <View
             style={[
@@ -79,8 +81,8 @@ const DetailsScreen = () => {
             <Image style={StyleGuide.iconSize} source={icons.download} />
           </TouchableOpacity>
         </View>
-        <View
-          style={[StyleGuide.fr, {flexWrap: 'wrap', paddingVertical: hp(1)}]}>
+        {/* movie information */}
+        <View style={[StyleGuide.fr, {flexWrap: 'wrap', paddingTop: hp(1)}]}>
           <Text style={[StyleGuide.semiText]}>{params.movie.year}</Text>
           <Dot />
           <Text style={[StyleGuide.semiText]}>{params.movie.length}</Text>
@@ -90,11 +92,15 @@ const DetailsScreen = () => {
               <Text style={[StyleGuide.semiText]}>
                 {params.movie.tags.length - 1 === index ? ' and ' : ''}
                 {tag.name}
-                {params.movie.tags.length - 1 === index ? '.' : ', '}
+                {params.movie.tags.length - 1 === index ? '' : ', '}
               </Text>
             </TouchableOpacity>
           ))}
+          <Dot />
+          <Text style={[StyleGuide.semiText]}>{params.movie.quality}</Text>
         </View>
+        {/* movie story */}
+        <Text style={[StyleGuide.semiText, {fontSize: FontSize.medium, color: StyleGuide.colors.accent}]}>{params.movie.shortInfo}</Text>
       </View>
     </View>
   );
