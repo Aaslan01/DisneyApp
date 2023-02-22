@@ -1,4 +1,4 @@
-import { ImageRequireSource } from "react-native";
+import { ImageRequireSource, ImageSourcePropType } from "react-native";
 // tag interface
 interface Tag {
   id: number;
@@ -25,6 +25,21 @@ export interface Studio {
   image: ImageRequireSource;
 }
 
+// Icons list
+
+interface Icons {
+  add: ImageSourcePropType;
+  cross: ImageSourcePropType;
+  download: ImageSourcePropType;
+  play: ImageSourcePropType;
+}
+
+export const icons: Icons = {
+  add: require("../assets/images/icons/add.png"),
+  cross: require("../assets/images/icons/cross.png"),
+  download: require("../assets/images/icons/downloading.png"),
+  play: require("../assets/images/icons/play.png"),
+};
 // list of movie tags
 const tags: Tag[] = [
   {
