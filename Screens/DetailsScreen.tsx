@@ -10,15 +10,14 @@ import {useNavigation} from '@react-navigation/native';
 import StyleGuide from '../constants/StyleGuide';
 import Dot from '../components/Dot';
 import FontSize from '../constants/FontSize';
+import DetailFooter from '../components/DetailFooter';
 
 const DetailsScreen = () => {
   const params = useRoute().params as any;
   const navigation = useNavigation<any>();
-  console.log('====params================================');
-  console.log(params.movie.tags);
-  console.log('====================================');
   return (
     <View style={{backgroundColor: StyleGuide.colors.dark, flex: 1}}>
+      {/* Main Image */}
       <Image
         resizeMode="cover"
         style={{
@@ -37,8 +36,9 @@ const DetailsScreen = () => {
           borderRadius: 50,
         }}>
         <Image source={icons.cross} />
-      </TouchableOpacity>
+      </TouchableOpacity>      
       <View style={{paddingHorizontal: wp(4)}}>
+        {/* studio logo */}
         <Image
           resizeMode="contain"
           style={{width: wp(60), height: hp(22)}}
@@ -100,7 +100,15 @@ const DetailsScreen = () => {
           <Text style={[StyleGuide.semiText]}>{params.movie.quality}</Text>
         </View>
         {/* movie story */}
-        <Text style={[StyleGuide.semiText, {fontSize: FontSize.medium, color: StyleGuide.colors.accent}]}>{params.movie.shortInfo}</Text>
+        <Text
+          style={[
+            StyleGuide.semiText,
+            {fontSize: FontSize.medium, color: StyleGuide.colors.accent},
+          ]}>
+          {params.movie.shortInfo}
+        </Text>
+        {/* borderline */}
+        <DetailFooter/>
       </View>
     </View>
   );
