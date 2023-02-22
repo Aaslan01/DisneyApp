@@ -27,7 +27,7 @@ const MoviesList: React.FC<Props> = ({movies, title}) => {
         }}>
         {movies.map((movie: MovieTypes) => (
           <Movies
-            onPress={() => navigation.navigate("Product", {movie})}
+            // onPress={() => navigation.navigate("Product", {movie})}
             key={movie.id}
             movie={movie}
           />

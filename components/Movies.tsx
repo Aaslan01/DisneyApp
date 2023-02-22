@@ -5,17 +5,18 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import {useNavigation} from '@react-navigation/native';
 
 interface Props {
   movie: MovieType;
-  onPress?: () => void;
   navigation?: any;
 }
 
 
-const Movies: React.FC<Props> = ({movie, onPress}) => {
+const Movies: React.FC<Props> = ({movie}) => {
+  const navigation = useNavigation<any>();
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity  onPress={() => navigation.navigate("Product", {movie})}>
       <Image
         resizeMode="contain"
         style={{
