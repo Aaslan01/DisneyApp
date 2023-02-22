@@ -3,7 +3,6 @@ import React from 'react';
 import {Movie as MovieTypes} from '../data';
 import StyleGuide from '../constants/StyleGuide';
 import Movies from './Movies';
-import {useNavigation} from '@react-navigation/native';
 
 interface Props {
   movies: MovieTypes[];
@@ -11,7 +10,6 @@ interface Props {
 }
 
 const MoviesList: React.FC<Props> = ({movies, title}) => {
-  const navigation = useNavigation<any>();
   return (
     <View>
       {title && (
@@ -27,7 +25,6 @@ const MoviesList: React.FC<Props> = ({movies, title}) => {
         }}>
         {movies.map((movie: MovieTypes) => (
           <Movies
-            // onPress={() => navigation.navigate("Product", {movie})}
             key={movie.id}
             movie={movie}
           />
