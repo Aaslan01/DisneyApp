@@ -11,12 +11,13 @@ import StyleGuide from '../constants/StyleGuide';
 import Dot from '../components/Dot';
 import FontSize from '../constants/FontSize';
 import DetailFooter from '../components/DetailFooter';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const DetailsScreen = () => {
   const params = useRoute().params as any;
   const navigation = useNavigation<any>();
   return (
-    <View style={{backgroundColor: StyleGuide.colors.dark, flex: 1}}>
+    <ScrollView style={{backgroundColor: StyleGuide.colors.dark, flex: 1}}>
       {/* Main Image */}
       <Image
         resizeMode="cover"
@@ -46,7 +47,7 @@ const DetailsScreen = () => {
         />
         {/* movie option */}
         <View style={StyleGuide.frac}>
-          <View
+          <TouchableOpacity
             style={[
               StyleGuide.frac,
               {
@@ -73,7 +74,7 @@ const DetailsScreen = () => {
               ]}>
               P L A Y
             </Text>
-          </View>
+          </TouchableOpacity>
           <TouchableOpacity>
             <Image style={StyleGuide.iconSize} source={icons.add} />
           </TouchableOpacity>
@@ -110,7 +111,7 @@ const DetailsScreen = () => {
         {/* borderline */}
         <DetailFooter/>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
