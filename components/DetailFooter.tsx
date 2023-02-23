@@ -52,7 +52,15 @@ const DetailFooter = () => {
           </TouchableOpacity>
         ))}
       </View>
-      <RelatedMovies movies={movies.slice(0, 4)}/>
+      {items[activeButton] === 'RELATED' && (
+        <RelatedMovies movies={movies.slice(0, 4)} />
+      )}
+      {items[activeButton] === 'EXTRA' && (
+        <RelatedMovies movies={movies.slice(2, 6)} />
+      )}
+      {items[activeButton] === 'DETAILS' && (
+        <RelatedMovies movies={movies.slice(4, 8)} />
+      )}
     </>
   );
 };

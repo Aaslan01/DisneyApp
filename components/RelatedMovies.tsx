@@ -1,16 +1,18 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {Movie as MovieTypes} from '../data';
+import {useNavigation} from '@react-navigation/native';
 
 interface Props {
-    movies: MovieTypes[];
-  }
+  movies: MovieTypes[];
+}
 
 const RelatedMovies: React.FC<Props> = ({movies}) => {
+  const navigation = useNavigation<any>();
   return (
     <View
       style={{
@@ -18,8 +20,9 @@ const RelatedMovies: React.FC<Props> = ({movies}) => {
         flexWrap: 'wrap',
         justifyContent: 'space-between',
       }}>
-      {movies.map((movie:MovieTypes)  => (
-        <View>
+      {movies.map((movie: MovieTypes, index) => (
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Product', {movie})}>
           <Image
             resizeMode="contain"
             style={{
@@ -31,7 +34,7 @@ const RelatedMovies: React.FC<Props> = ({movies}) => {
             }}
             source={movie.image}
           />
-        </View>
+        </TouchableOpacity>
       ))}
     </View>
   );
