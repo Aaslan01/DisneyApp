@@ -1,4 +1,4 @@
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, Platform} from 'react-native';
 import React from 'react';
 import {useRoute} from '@react-navigation/native';
 import {icons, movies} from '../data';
@@ -18,7 +18,6 @@ const DetailsScreen = () => {
   const params = useRoute().params as any;
   const navigation = useNavigation<any>();
   return (
-    <View style={{flex: 1}}>
       <LinearGradient
         colors={[StyleGuide.colors.dark, StyleGuide.colors.black]}
         style={{
@@ -37,8 +36,8 @@ const DetailsScreen = () => {
           onPress={() => navigation.goBack()}
           style={{
             position: 'absolute',
-            top: 4,
-            right: 4,
+            top: Platform.OS == "ios"? hp(6): 4,
+            right: Platform.OS == "ios"? wp(6): 4,
             backgroundColor: StyleGuide.colors.accent,
             borderRadius: 50,
           }}>
@@ -121,7 +120,6 @@ const DetailsScreen = () => {
           </View>
         </ScrollView>
       </LinearGradient>
-    </View>
   );
 };
 
